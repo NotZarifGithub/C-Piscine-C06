@@ -1,33 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_params.c                                  :+:      :+:    :+:   */
+/*   ft_sort_params.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabd-ram <mabd-ram@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/13 15:11:14 by mabd-ram          #+#    #+#             */
-/*   Updated: 2024/05/14 00:29:36 by mabd-ram         ###   ########.fr       */
+/*   Created: 2024/05/13 19:42:22 by mabd-ram          #+#    #+#             */
+/*   Updated: 2024/05/14 17:36:50 by mabd-ram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	main(int argc, char *argv[])
+void	ft_putstr(char *str)
 {
 	int	i;
-	int	y;
 
-	y = 1;
-	while (argc > y)
+	i = 0;
+	while (str[i] != '\0')
 	{
-		i = 0;
-		while (argv[y][i] != '\0')
-		{
-			write(1, &argv[y][i], 1);
-			i++;
-		}
-		write(1, "\n", 1);
-		y++;
+		write(1, &str[i], 1);
+		i++;
 	}
-	return (0);
+}
+
+void	ft_swap(char *str1, char *str2)
+{
+	char	temp;
+
+	temp = *str1;
+	*str1 = *str2;
+	*str2 = temp;
+}
+
+int	ft_strcmp(char *str1, char *str2)
+{
+	int	i;
+
+	i = 0;
+	while (str1[i] == str2[i] && str1[i] != '\0')
+	{
+		i++;
+	}
+	return (str1[i] - str2[i]);
 }
